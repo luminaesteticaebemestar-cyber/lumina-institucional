@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ficha de Cadastro — Lumina</title>
+  <style>
+    :root{
+      --bg:#FAF7F2; --panel:#FFFFFF; --text:#5C4632; --muted:#7A6F63;
+      --accent:#C8A96A; --accent2:#9DB49B; --line:#ECE6DC; --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 28px rgba(0,0,0,.06)}
+    header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:10}
+    nav{max-width:1100px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:700} .spark{color:var(--accent)}
+    h1{margin:0 0 .5rem} p{margin:.25rem 0;color:var(--muted)}
+    form{padding:20px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .field{display:flex;flex-direction:column;margin-bottom:12px}
+    label{font-weight:600;margin-bottom:.35rem}
+    input,select,textarea{padding:.8rem .9rem;border:1px solid var(--line);border-radius:12px;background:#fff}
+    .muted{color:var(--muted);font-size:.9rem}
+    .actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:8px}
+    .btn{padding:.9rem 1.2rem;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:700}
+    .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .hint{padding:12px 16px;border:1px dashed var(--line);border-radius:12px;background:#fff6; margin:12px 0}
+    .hide{display:none}
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="brand">Lumina <span class="spark">✨</span></div>
+      <a href="index.html" class="muted">← Voltar</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="card" style="padding:20px">
+      <h1>Ficha de Cadastro da Profissional</h1>
+      <p class="muted">Preencha seus dados para integrar a comunidade Lumina. Linguagem acolhedora, estética minimalista e foco no seu brilho pessoal ✨</p>
+
+      <form id="form" autocomplete="on">
+        <h3>1) Dados pessoais</h3>
+        <div class="grid">
+          <div class="field"><label for="nome">Nome completo *</label><input id="nome" name="nome" required></div>
+          <div class="field"><label for="whats">WhatsApp *</label><input id="whats" name="whatsapp" required></div>
+          <div class="field"><label for="email">E-mail *</label><input id="email" name="email" type="email" required></div>
+          <div class="field"><label for="instagram">Instagram</label><input id="instagram" name="instagram" placeholder="@seuusuario"></div>
+          <div class="field"><label for="cidade">Cidade</label><input id="cidade" name="cidade" value="Ipatinga"></div>
+          <div class="field"><label for="uf">UF</label><input id="uf" name="uf" value="MG"></div>
+          <div class="field"><label for="endereco">Endereço</label><input id="endereco" name="endereco"></div>
+          <div class="field"><label for="cep">CEP</label><input id="cep" name="cep"></div>
+          <div class="field"><label for="complemento">Complemento</label><input id="complemento" name="complemento"></div>
+          <div class="field"><label for="cpf">CPF</label><input id="cpf" name="cpf" placeholder="000.000.000-00"></div>
+          <div class="field"><label for="rg">RG</label><input id="rg" name="rg"></div>
+          <div class="field"><label for="nascimento">Data de nascimento</label><input id="nascimento" name="nascimento" type="date"></div>
+        </div>
+
+        <h3 style="margin-top:18px">2) Modalidade e serviços</h3>
+        <div class="grid">
+          <div class="field">
+            <label for="modalidade">Modalidade *</label>
+            <select id="modalidade" name="modalidade" required>
+              <option value="">Selecione…</option>
+              <option>Sala</option>
+              <option>Estação/Mesa</option>
+            </select>
+          </div>
+          <div class="field"><label for="horarios">Horários</label><input id="horarios" name="horarios" placeholder="ex.: Seg–Sex 9h–18h"></div>
+        </div>
+
+        <div id="boxServicos" class="hint hide">
+          <strong>Serviços (Escolha um ou mais):</strong><br>
+          <label><input type="checkbox" name="servicos[]" value="Manicure/Pedicure"> Manicure/Pedicure</label><br>
+          <label><input type="checkbox" name="servicos[]" value="Design de Sobrancelhas"> Design de sobrancelhas</label><br>
+          <label><input type="checkbox" name="servicos[]" value="Extensão de Cílios"> Extensão de cílios</label><br>
+          <label><input type="checkbox" name="servicos[]" value="Micropigmentação"> Micropigmentação</label><br>
+          <label><input type="checkbox" name="servicos[]" value="Outro"> Outro (descrever na mensagem)</label>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">Concluir cadastro</button>
+          <button type="reset" class="btn">Limpar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    // === Config do seu banco (Apps Script)
+    const CONFIG = {
+      endpoint: 'https://script.google.com/macros/s/AKfycbx_Kx4bTilJ-rZLJIMkTmyhd6E8H7-4xXU0Ru_4LdZXVL1gtxuvc_TkItTH7N4yYDgVUg/exec',
+      token: 'LUMINA_SEC_5c7f4a0f4b3e41e0a3d9b7a2f6c18e9d'
+    };
+
+    // Mostrar serviços somente para Estação/Mesa
+    const modalidadeEl = document.getElementById('modalidade');
+    const boxServicos  = document.getElementById('boxServicos');
+    modalidadeEl.addEventListener('change', () => {
+      boxServicos.classList.toggle('hide', modalidadeEl.value !== 'Estação/Mesa');
+    });
+
+    async function sendToBackend(payload){
+      const res = await fetch(CONFIG.endpoint, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','X-Auth-Token': CONFIG.token},
+        body: JSON.stringify({...payload, token: CONFIG.token, timestamp: new Date().toISOString()})
+      }).catch(() => null);
+      if(!res) return {ok:false};
+      try { return await res.json(); } catch { return {ok:false}; }
+    }
+
+    // Manipular envio
+    document.getElementById('form').addEventListener('submit', async (e)=>{
+      e.preventDefault();
+
+      // monta payload
+      const fd = new FormData(e.target);
+      const payload = Object.fromEntries(fd.entries());
+      // checkboxes de serviços
+      payload.servicos = [...document.querySelectorAll('input[name="servicos[]"]:checked')].map(i=>i.value);
+
+      // envia
+      const r = await sendToBackend(payload);
+      if(r && r.ok){
+        alert('Cadastro efetuado com sucesso.');
+        e.target.reset();
+        boxServicos.classList.add('hide');
+      }else{
+        alert('Não foi possível enviar agora. Tente novamente em instantes.');
+      }
+    });
+  </script>
+</body>
+</html>
