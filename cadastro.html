@@ -1,140 +1,104 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ficha de Cadastro — Lumina</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro — Lumina Estética</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#FAF7F2; --panel:#FFFFFF; --text:#5C4632; --muted:#7A6F63;
-      --accent:#C8A96A; --accent2:#9DB49B; --line:#ECE6DC; --radius:16px;
+      --bg:#fbf9f6; --paper:#fff; --line:#e9e1d6; --text:#4c3a2e; --muted:#7b6d62; --gold:#bfa37a;
+      --shadow:0 10px 30px rgba(0,0,0,.08); --radius:18px;
     }
     *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
-    .wrap{max-width:1100px;margin:0 auto;padding:24px}
-    .card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 28px rgba(0,0,0,.06)}
-    header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:10}
-    nav{max-width:1100px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between}
-    .brand{font-weight:700} .spark{color:var(--accent)}
-    h1{margin:0 0 .5rem} p{margin:.25rem 0;color:var(--muted)}
-    form{padding:20px}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    @media (max-width:900px){.grid{grid-template-columns:1fr}}
-    .field{display:flex;flex-direction:column;margin-bottom:12px}
-    label{font-weight:600;margin-bottom:.35rem}
-    input,select,textarea{padding:.8rem .9rem;border:1px solid var(--line);border-radius:12px;background:#fff}
-    .muted{color:var(--muted);font-size:.9rem}
-    .actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:8px}
-    .btn{padding:.9rem 1.2rem;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:700}
-    .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .hint{padding:12px 16px;border:1px dashed var(--line);border-radius:12px;background:#fff6; margin:12px 0}
-    .hide{display:none}
+    body{margin:0; background:var(--bg); color:var(--text); font-family:'Inter',system-ui,Arial; line-height:1.7}
+    header{padding:32px 16px; text-align:center}
+    h1{font-family:'Playfair Display',serif; font-size:40px; margin:8px 0 4px}
+    p.lead{color:var(--muted); margin:0}
+    main{max-width:760px; margin:24px auto 60px; padding:0 16px}
+    .card{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:28px}
+    label{display:block; font-weight:600; margin-top:14px}
+    input,select,textarea{width:100%; padding:14px 12px; border:1px solid var(--line); border-radius:12px; background:#fff; font-size:16px}
+    fieldset{border:1px solid var(--line); border-radius:14px; padding:14px 16px; margin-top:14px}
+    legend{padding:0 6px; color:var(--muted)}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    .row > div{min-width:0}
+    .actions{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap}
+    button{padding:14px 22px; border-radius:14px; border:1px solid var(--gold); background:linear-gradient(180deg,#d9c7a2,#bfa37a); color:#fff; font-weight:800; cursor:pointer}
+    .outline{background:#fff; color:var(--text)}
+    footer{padding:24px; text-align:center; color:var(--muted); font-size:14px}
+    .help{font-size:13px; color:var(--muted)}
+    @media(max-width:720px){ .row{grid-template-columns:1fr} h1{font-size:32px} }
   </style>
 </head>
 <body>
   <header>
-    <nav>
-      <div class="brand">Lumina <span class="spark">✨</span></div>
-      <a href="index.html" class="muted">← Voltar</a>
-    </nav>
+    <div>🌟</div>
+    <h1>Cadastro — Lumina Estética</h1>
+    <p class="lead">Preencha seus dados para participar do plano de lançamento.</p>
   </header>
 
-  <main class="wrap">
-    <section class="card" style="padding:20px">
-      <h1>Ficha de Cadastro da Profissional</h1>
-      <p class="muted">Preencha seus dados para integrar a comunidade Lumina. Linguagem acolhedora, estética minimalista e foco no seu brilho pessoal ✨</p>
-
-      <form id="form" autocomplete="on">
-        <h3>1) Dados pessoais</h3>
-        <div class="grid">
-          <div class="field"><label for="nome">Nome completo *</label><input id="nome" name="nome" required></div>
-          <div class="field"><label for="whats">WhatsApp *</label><input id="whats" name="whatsapp" required></div>
-          <div class="field"><label for="email">E-mail *</label><input id="email" name="email" type="email" required></div>
-          <div class="field"><label for="instagram">Instagram</label><input id="instagram" name="instagram" placeholder="@seuusuario"></div>
-          <div class="field"><label for="cidade">Cidade</label><input id="cidade" name="cidade" value="Ipatinga"></div>
-          <div class="field"><label for="uf">UF</label><input id="uf" name="uf" value="MG"></div>
-          <div class="field"><label for="endereco">Endereço</label><input id="endereco" name="endereco"></div>
-          <div class="field"><label for="cep">CEP</label><input id="cep" name="cep"></div>
-          <div class="field"><label for="complemento">Complemento</label><input id="complemento" name="complemento"></div>
-          <div class="field"><label for="cpf">CPF</label><input id="cpf" name="cpf" placeholder="000.000.000-00"></div>
-          <div class="field"><label for="rg">RG</label><input id="rg" name="rg"></div>
-          <div class="field"><label for="nascimento">Data de nascimento</label><input id="nascimento" name="nascimento" type="date"></div>
+  <main>
+    <div class="card">
+      <!-- Formulário sem JS (compatível com Instagram Webview) -->
+      <form action="https://formsubmit.co/luminaestetica.ipatinga@gmail.com" method="POST">
+        <div class="row">
+          <div>
+            <label for="nome">Nome completo*</label>
+            <input id="nome" name="nome" required>
+          </div>
+          <div>
+            <label for="whats">WhatsApp*</label>
+            <input id="whats" name="whatsapp" required placeholder="(31) 9XXXX-XXXX">
+          </div>
         </div>
 
-        <h3 style="margin-top:18px">2) Modalidade e serviços</h3>
-        <div class="grid">
-          <div class="field">
-            <label for="modalidade">Modalidade *</label>
+        <div class="row">
+          <div>
+            <label for="nascimento">Data de nascimento</label>
+            <input id="nascimento" name="data_nascimento" type="date">
+          </div>
+          <div>
+            <label for="modalidade">Modalidade*</label>
             <select id="modalidade" name="modalidade" required>
-              <option value="">Selecione…</option>
-              <option>Sala</option>
-              <option>Estação/Mesa</option>
+              <option value="">Selecione</option>
+              <option>Manicure/Pedicure</option>
+              <option>Design de sobrancelhas</option>
+              <option>Extensão de cílios</option>
+              <option>Micropigmentação</option>
+              <option>Estética facial/corporal</option>
             </select>
           </div>
-          <div class="field"><label for="horarios">Horários</label><input id="horarios" name="horarios" placeholder="ex.: Seg–Sex 9h–18h"></div>
         </div>
 
-        <div id="boxServicos" class="hint hide">
-          <strong>Serviços (Escolha um ou mais):</strong><br>
-          <label><input type="checkbox" name="servicos[]" value="Manicure/Pedicure"> Manicure/Pedicure</label><br>
-          <label><input type="checkbox" name="servicos[]" value="Design de Sobrancelhas"> Design de sobrancelhas</label><br>
-          <label><input type="checkbox" name="servicos[]" value="Extensão de Cílios"> Extensão de cílios</label><br>
-          <label><input type="checkbox" name="servicos[]" value="Micropigmentação"> Micropigmentação</label><br>
-          <label><input type="checkbox" name="servicos[]" value="Outro"> Outro (descrever na mensagem)</label>
-        </div>
+        <fieldset>
+          <legend>Serviços (escolha um ou mais)</legend>
+          <label><input type="checkbox" name="servicos[]" value="Manicure/Pedicure"> Manicure/Pedicure</label>
+          <label><input type="checkbox" name="servicos[]" value="Design de sobrancelhas"> Design de sobrancelhas</label>
+          <label><input type="checkbox" name="servicos[]" value="Extensão de cílios"> Extensão de cílios</label>
+          <label><input type="checkbox" name="servicos[]" value="Micropigmentação"> Micropigmentação</label>
+          <label><input type="checkbox" name="servicos[]" value="Outro"> Outro</label>
+        </fieldset>
+
+        <label for="msg">Mensagem (opcional)</label>
+        <textarea id="msg" name="mensagem" rows="4" placeholder="Conte um pouco sobre sua experiência, redes sociais, certificações etc."></textarea>
+
+        <!-- Config do FormSubmit -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Novo cadastro — Lumina Estética">
+        <input type="hidden" name="_template" value="table">
+        <!-- Redireciona para a página de obrigado local -->
+        <input type="hidden" name="_next" value="./obrigado.html">
 
         <div class="actions">
-          <button type="submit" class="btn primary">Concluir cadastro</button>
-          <button type="reset" class="btn">Limpar</button>
+          <button type="submit">Concluir cadastro</button>
+          <a class="outline" href="https://wa.me/5531987590587" style="text-decoration:none; padding:14px 22px; border-radius:14px; border:1px solid var(--gold)">Falar no WhatsApp</a>
         </div>
+        <p class="help">Se estiver usando o Instagram, você pode tocar nos ••• e escolher <b>“Abrir no navegador”</b> caso a página esteja lenta.</p>
       </form>
-    </section>
+    </div>
   </main>
 
-  <script>
-    // === Config do seu banco (Apps Script)
-    const CONFIG = {
-      endpoint: 'https://script.google.com/macros/s/AKfycbx_Kx4bTilJ-rZLJIMkTmyhd6E8H7-4xXU0Ru_4LdZXVL1gtxuvc_TkItTH7N4yYDgVUg/exec',
-      token: 'LUMINA_SEC_5c7f4a0f4b3e41e0a3d9b7a2f6c18e9d'
-    };
-
-    // Mostrar serviços somente para Estação/Mesa
-    const modalidadeEl = document.getElementById('modalidade');
-    const boxServicos  = document.getElementById('boxServicos');
-    modalidadeEl.addEventListener('change', () => {
-      boxServicos.classList.toggle('hide', modalidadeEl.value !== 'Estação/Mesa');
-    });
-
-    async function sendToBackend(payload){
-      const res = await fetch(CONFIG.endpoint, {
-        method: 'POST',
-        headers: {'Content-Type':'application/json','X-Auth-Token': CONFIG.token},
-        body: JSON.stringify({...payload, token: CONFIG.token, timestamp: new Date().toISOString()})
-      }).catch(() => null);
-      if(!res) return {ok:false};
-      try { return await res.json(); } catch { return {ok:false}; }
-    }
-
-    // Manipular envio
-    document.getElementById('form').addEventListener('submit', async (e)=>{
-      e.preventDefault();
-
-      // monta payload
-      const fd = new FormData(e.target);
-      const payload = Object.fromEntries(fd.entries());
-      // checkboxes de serviços
-      payload.servicos = [...document.querySelectorAll('input[name="servicos[]"]:checked')].map(i=>i.value);
-
-      // envia
-      const r = await sendToBackend(payload);
-      if(r && r.ok){
-        alert('Cadastro efetuado com sucesso.');
-        e.target.reset();
-        boxServicos.classList.add('hide');
-      }else{
-        alert('Não foi possível enviar agora. Tente novamente em instantes.');
-      }
-    });
-  </script>
+  <footer>© <script>document.write(new Date().getFullYear())</script> Lumina Estética</footer>
 </body>
 </html>
